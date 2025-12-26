@@ -30,6 +30,7 @@ import CRM from "./pages/CRM";
 import FAQ from "./pages/FAQ";
 import Career from "./pages/Career";
 import Management from "./pages/Management";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/career" element={<Career />} />
             <Route path="/management" element={<Management />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
       </Layout>

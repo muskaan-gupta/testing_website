@@ -121,6 +121,7 @@ const Header = () => {
                     if (item === "FAQ") return "/faq";
                     if (item === "Career") return "/career";
                     if (item === "Management Team") return "/management";
+                    if (item === "Contact Us") return "/contact";
                     return `/#${item.replace(/\s+/g, "-").toLowerCase()}`;
                   };
 
@@ -182,7 +183,7 @@ const Header = () => {
                     );
                   }
                   
-                  return item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" ? (
+                  return item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" || item === "Contact Us" ? (
                     <Link
                       key={item}
                       to={getRoute(item)}
@@ -241,6 +242,7 @@ const Header = () => {
                   if (item === "FAQ") return "/faq";
                   if (item === "Career") return "/career";
                   if (item === "Management Team") return "/management";
+                  if (item === "Contact Us") return "/contact";
                   return `/#${item.replace(/\s+/g, "-").toLowerCase()}`;
                 };
 
@@ -294,7 +296,7 @@ const Header = () => {
                 
                 return (
                   <li key={item}>
-                    {item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Organogram" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" ? (
+                    {item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Organogram" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" || item === "Contact Us" ? (
                       <Link
                         to={getRoute(item)}
                         onClick={() => setOpen(false)}
