@@ -1,0 +1,196 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Coverflow slider styling */
+.coverflow-slider { 
+  perspective: 1200px;
+  perspective-origin: center center;
+}
+.coverflow-slider .slick-list { 
+  overflow: visible;
+  padding: 0 80px;
+}
+.coverflow-slider .slick-track { 
+  display: flex !important;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+.coverflow-slider .slick-slide {
+  transform-style: preserve-3d;
+}
+.coverflow-slider .slide {
+  transform: rotateY(60deg) translateZ(-150px) scale(0.8);
+  opacity: 0.6;
+  transition: all 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
+  transform-origin: center center;
+}
+.coverflow-slider .slide.center {
+  transform: rotateY(0deg) translateZ(0px) scale(1);
+  opacity: 1;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+.coverflow-slider .slide.prev {
+  transform: rotateY(45deg) translateZ(-80px) translateX(-30px) scale(0.9);
+  z-index: 5;
+  opacity: 0.8;
+}
+.coverflow-slider .slide.next {
+  transform: rotateY(-45deg) translateZ(-80px) translateX(30px) scale(0.9);
+  z-index: 5;
+  opacity: 0.8;
+}
+.coverflow-slider .slide.prev2 {
+  transform: rotateY(60deg) translateZ(-120px) translateX(-50px) scale(0.85);
+  opacity: 0.7;
+  z-index: 3;
+}
+.coverflow-slider .slide.next2 {
+  transform: rotateY(-60deg) translateZ(-120px) translateX(50px) scale(0.85);
+  opacity: 0.7;
+  z-index: 3;
+}
+.coverflow-slider .slick-dots li button:before {
+  font-size: 10px;
+}
+
+/* Card and hover effects */
+.coverflow-slider .card {
+  transition: all 300ms ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+.coverflow-slider .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+.coverflow-slider .card-inner {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+.gradient-tech {
+  background: linear-gradient(145deg, 
+    rgba(59,130,246,0.8), 
+    rgba(34,211,238,0.8), 
+    rgba(99,102,241,0.8),
+    rgba(168,85,247,0.8)
+  );
+  border: 2px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Custom arrows */
+.coverflow-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(145deg, rgba(59,130,246,0.9), rgba(99,102,241,0.9));
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.coverflow-arrow.left { left: 20px; }
+.coverflow-arrow.right { right: 20px; }
+.coverflow-arrow:hover { 
+  background: linear-gradient(145deg, rgba(59,130,246,1), rgba(99,102,241,1));
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .coverflow-slider .slick-list {
+    padding: 0 40px;
+  }
+  .coverflow-slider .slide {
+    transform: rotateY(50deg) translateZ(-100px) scale(0.85);
+  }
+  .coverflow-slider .slide.center {
+    transform: rotateY(0deg) translateZ(0px) scale(1);
+  }
+  .coverflow-slider .slide.prev {
+    transform: rotateY(35deg) translateZ(-60px) translateX(-20px) scale(0.9);
+  }
+  .coverflow-slider .slide.next {
+    transform: rotateY(-35deg) translateZ(-60px) translateX(20px) scale(0.9);
+  }
+  .coverflow-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Ensure proper 3D rendering */
+.coverflow-slider .slick-slide > div {
+  transform-style: preserve-3d;
+}
+.coverflow-slider .slick-slide > div > div {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced dots styling */
+.coverflow-slider .slick-dots {
+  bottom: -40px;
+}
+.coverflow-slider .slick-dots li {
+  margin: 0 3px;
+}
+.coverflow-slider .slick-dots li button:before {
+  font-size: 12px;
+  color: rgba(59,130,246,0.6);
+}
+.coverflow-slider .slick-dots li.slick-active button:before {
+  color: rgb(59,130,246);
+}
