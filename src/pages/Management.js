@@ -49,17 +49,17 @@ export default function Management() {
   return (
     <div>
       {/* Hero Image Section - Same as About page */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh] sm:h-auto overflow-hidden">
         <img 
           src="/manage.jpg" 
           alt="Management Team Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto object-contain object-center"
         />
        
       </section>
 
       {/* Team Members Section */}
-      <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+      <section className="w-full bg-white py-2 sm:py-4 lg:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16 lg:space-y-24">
             {teamMembers.map((member, index) => (
@@ -99,7 +99,7 @@ export default function Management() {
                   </h2>
 
                   {/* Designation */}
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-cyan-400 mb-6">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-black mb-6">
                     {member.designation}
                   </h3>
 

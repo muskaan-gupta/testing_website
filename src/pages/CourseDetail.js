@@ -11,10 +11,8 @@ const CourseDetail = () => {
     title: "Digital Marketing Mastery",
     description: "Learn comprehensive digital marketing strategies including SEO, social media, and content marketing to grow your business and career.",
     duration: "8 Weeks",
-    price: "₹4,999",
-    originalPrice: "₹7,999",
+    price: "₹0",
     availability: "Open Now",
-    category: "paid",
     type: "long",
     image: "/api/placeholder/800/400",
     level: "Beginner",
@@ -78,9 +76,7 @@ const CourseDetail = () => {
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-2">
                     <span className="text-3xl font-bold text-gray-900">{course.price}</span>
-                    {course.originalPrice && (
-                      <span className="text-lg text-gray-500 line-through">{course.originalPrice}</span>
-                    )}
+                    
                   </div>
                   <motion.button
                     className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-full"

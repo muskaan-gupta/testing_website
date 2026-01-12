@@ -10,40 +10,66 @@ const NAV_ITEMS = [
   "Core values",
   "Organogram",
   "Career",
-  "Courses",
   "Policy",
   "CRM",
   "Projects",
   "FAQ",
-  "Management Team",
+  "Management",
   "Contact Us",
-  "Survey",
 ];
 
 const PROJECT_ITEMS = [
-  { id: 1, name: "Blood Donation", slug: "blood-donation" },
-  { id: 2, name: "Women Empowerment", slug: "women-empowerment" },
-  { id: 3, name: "Environment Armour", slug: "environment-armour" },
-  { id: 4, name: "Education Initiative", slug: "education-initiative" },
-  { id: 5, name: "Healthcare Access", slug: "healthcare-access" },
-  { id: 6, name: "Rural Development", slug: "rural-development" },
-  { id: 7, name: "Child Welfare", slug: "child-welfare" },
-  { id: 8, name: "Senior Care", slug: "senior-care" },
-  { id: 9, name: "Skill Development", slug: "skill-development" },
-  { id: 10, name: "Digital Literacy", slug: "digital-literacy" },
-  { id: 11, name: "Clean Water Initiative", slug: "clean-water" },
-  { id: 12, name: "Food Security", slug: "food-security" },
-  { id: 13, name: "Disaster Relief", slug: "disaster-relief" },
-  { id: 14, name: "Mental Health Support", slug: "mental-health" },
-  { id: 15, name: "Community Building", slug: "community-building" }
+  { id: 1, name: "Community Building", slug: "community-building" },
+  { id: 2, name: "Blood Donation", slug: "blood-donation" },
+   { id: 3, name: "Drug De-addiction", slug: "mental-health" },
+  
+  { id: 4, name: "Environment Armour", slug: "environment-armour" },
+  { id: 5, name: "Gender Justice", slug: "education-initiative" },
+  { id: 6, name: "Gracious Justice", slug: "rural-development" },
+
+  { id: 7, name: "Human Right", slug: "human-right" },
+
+  { id: 8, name: "Old age, Orphanage & Blind Home", slug: "old-age-orphanage-blind-home" },
+  { id: 9, name: "Sports Training Support", slug: "sports-training-support" },
+  { id: 10, name: "True Eternal Worriors", slug: "true-eternal-worriors" },
+
+  { id: 11, name: "Training and Skill Development", slug: "training-and-skill-development" },
+  { id: 12, name: "True wisdom", slug: "true-wisdom" },
+    { id: 13, name: "Vigour and Vitality", slug: "vigour-and-vitality" },
+  { id: 14, name: "Voiceless Souls Protection", slug: "voiceless-souls-protection" },
+  { id: 15, name: "Women Empowerment", slug: "women-empowerment" }
+ 
+  
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [projectsDropdownOpen, setProjectsDropdownOpen] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = () => {
+      const authStatus = sessionStorage.getItem("isAuthenticated");
+      setIsAuthenticated(authStatus === "true");
+    };
+    
+    checkAuth();
+    
+    // Listen for storage changes (for logout from dashboard)
+    window.addEventListener('storage', checkAuth);
+    
+    // Check auth status periodically in case sessionStorage changes
+    const interval = setInterval(checkAuth, 1000);
+    
+    return () => {
+      window.removeEventListener('storage', checkAuth);
+      clearInterval(interval);
+    };
+  }, []);
 
   // Handle clicks outside dropdown
   useEffect(() => {
@@ -103,9 +129,9 @@ const Header = () => {
       {/* Navbar */}
       <nav className="relative w-full bg-gray-900 text-white z-[60]" style={{ zIndex: 60 }}>
         <div className="w-full mx-auto px-4">
-          <div className="flex items-center justify-between h-12" style={{ position: 'relative', zIndex: 61 }}>
+          <div className="flex items-center justify-between min-h-12 py-1" style={{ position: 'relative', zIndex: 61 }}>
             {/* Desktop nav (centered) */}
-            <nav className="relative hidden md:flex items-center justify-center space-x-3 flex-1 z-[60]">
+            <nav className="relative hidden md:flex items-center justify-center flex-wrap gap-2 flex-1 z-[60] py-1">
                 {NAV_ITEMS.map((item) => {
                   const getRoute = (item) => {
                     if (item === "Home") return "/";
@@ -113,15 +139,14 @@ const Header = () => {
                     if (item === "Mission") return "/mission";
                     if (item === "Vision") return "/vision";
                     if (item === "About Us") return "/about-us";
-                    if (item === "Courses") return "/courses";
                     if (item === "Core values") return "/core-values";
                     if (item === "Organogram") return "/organogram";
                     if (item === "Policy") return "/policy";
                     if (item === "CRM") return "/crm";
                     if (item === "FAQ") return "/faq";
                     if (item === "Career") return "/career";
-                    if (item === "Management Team") return "/management";
-                    if (item === "Contact Us") return "/contact";
+                    if (item === "Management") return "/management";
+                    if (item === "Contact Us") return "#contact";
                     return `/#${item.replace(/\s+/g, "-").toLowerCase()}`;
                   };
 
@@ -166,11 +191,11 @@ const Header = () => {
                               <Link
                                 key={project.id}
                                 to={`/projects/${project.slug}`}
-                                className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 hover:scale-105 transform origin-left"
+                                className="block px-4 py-3 text-sm text-black hover:bg-blue-50  transition-all duration-200 hover:scale-105 transform origin-left"
                                 onClick={() => setProjectsDropdownOpen(false)}
                               >
                                 <div className="flex items-center">
-                                  <span className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3">
+                                  <span className="w-6 h-6  text-black flex items-center justify-center text-xs font-bold mr-3">
                                     {index + 1}
                                   </span>
                                   {project.name}
@@ -183,7 +208,7 @@ const Header = () => {
                     );
                   }
                   
-                  return item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" || item === "Contact Us" ? (
+                  return item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "About Us" || item === "Core values" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management" ? (
                     <Link
                       key={item}
                       to={getRoute(item)}
@@ -201,6 +226,16 @@ const Header = () => {
                     </a>
                   );
                 })}
+                
+                {/* Dashboard link - only show when authenticated */}
+                {isAuthenticated && (
+                  <Link
+                    to="/dashboard"
+                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-100 bg-gray-900/0 hover:bg-gray-800/80 transition transform hover:-translate-y-0.5"
+                  >
+                    Dashboard
+                  </Link>
+                )}
               </nav>
             
             {/* Mobile: hamburger on the right */}
@@ -234,15 +269,14 @@ const Header = () => {
                   if (item === "Mission") return "/mission";
                   if (item === "Vision") return "/vision";
                   if (item === "About Us") return "/about-us";
-                  if (item === "Courses") return "/courses";
                   if (item === "Core values") return "/core-values";
                   if (item === "Organogram") return "/organogram";
                   if (item === "Policy") return "/policy";
                   if (item === "CRM") return "/crm";
                   if (item === "FAQ") return "/faq";
                   if (item === "Career") return "/career";
-                  if (item === "Management Team") return "/management";
-                  if (item === "Contact Us") return "/contact";
+                  if (item === "Management") return "/management";
+                  if (item === "Contact Us") return "#contact";
                   return `/#${item.replace(/\s+/g, "-").toLowerCase()}`;
                 };
 
@@ -296,7 +330,7 @@ const Header = () => {
                 
                 return (
                   <li key={item}>
-                    {item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "Courses" || item === "About Us" || item === "Core values" || item === "Organogram" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management Team" || item === "Contact Us" ? (
+                    {item === "Home" || item === "Agenda" || item === "Mission" || item === "Vision" || item === "About Us" || item === "Core values" || item === "Organogram" || item === "Policy" || item === "CRM" || item === "FAQ" || item === "Career" || item === "Management" ? (
                       <Link
                         to={getRoute(item)}
                         onClick={() => setOpen(false)}
@@ -316,6 +350,19 @@ const Header = () => {
                   </li>
                 );
               })}
+              
+              {/* Dashboard link - only show when authenticated */}
+              {isAuthenticated && (
+                <li>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setOpen(false)}
+                    className="block px-4 py-2 text-gray-100 hover:bg-gray-800/60 transition"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

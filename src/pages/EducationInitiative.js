@@ -31,8 +31,8 @@ const AlternatingSection = ({ sections }) => {
   };
 
   return (
-    <section className="py-5 lg:py-4 bg-black-500">
-      <div className="max-w-8xl mx-auto  sm:px-6 lg:px-8">
+    <section className="py-5 lg:py-4 bg-white">
+      <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
         {sections.map((section, index) => {
           const isEven = index % 2 === 0;
           return (
@@ -53,12 +53,12 @@ const AlternatingSection = ({ sections }) => {
                     <div className="overflow-hidden rounded-xl shadow-xl">
                       <img
                         src={section.image}
-                       
-                        className="w-full h-100 sm:h-90 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Environment Protection"
+                        className="w-full h-auto sm:h-90 lg:h-96 object-contain"
                       />
                     </div>
                     {/* Decorative overlay */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
 
@@ -77,11 +77,9 @@ const AlternatingSection = ({ sections }) => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                   >
-                   
-                    <p className="text-lg  text-black-900 leading-relaxed font-serif">
+                    <p className="text-lg text-black-900 leading-relaxed text-justify font-serif">
                       {section.content}
                     </p>
-                    
                   </motion.div>
                 </motion.div>
 
@@ -107,65 +105,56 @@ export default function About() {
   // Data for alternating sections
   const alternatingSections = [
     {
-      
-      content: "Our Organization is a core consortium of positive thoughts applied to personnel force and targets which have an in depth visioning with the prime objective of bringing the best possible solution for all those people in need of basic amenities of life. We always try to make sure not to leave any stone upturn in respect to provide support in all the philanthropy activities we perform as our daily routine work. It is a group of good number of individuals who have a hobby pertaining to social work and also provides a good platform to make the same as a professional life path. We invite professionals from different walk of lives and sectors, specifically fresher(s) to give themselves an opportunity to serve the society along with career progression. The Foundation has a specified work culture which is strictly blinded with Code of Conduct in all the perspectives of an organization behavior towards its employees as well as Society and Nation. We offer a great work culture wherein the employee has the opportunity to win accolades on completion of easily achievable targets as strict emphasis has been applied on ethical working. The promotion criteria are also not rigid and can be regained by any individual who has the positive intent and wisdom to work ethically.",
-      image: "/abus-1.jpeg",
-      
+      content: "The hypocrisy of human beings have deteriorated to such a depth in today’s world that they have deprived the same Shakti from her basic rights of equality in the daily routines of our lives. The only positive that comes out is that Government had been blessed with a group of good amount of wisdom think warehouses, which have made “Gender Equality one of the most prominent activity in all fields of society. We at RUDRAKSHA have aligned ourselves with this need of hour and have applied the same on us to begin with, describing a fraction of our intent towards this activity. The organizational manpower being hired represents close to 50% of female staff and same will be replicated in all the future offices opened in due course as per the need arises. As proud to be an Indian, we celebrate when a baby boy is born and if it's a girl then get muted by the culture. The disparity among children starts since they took birth, love for the boy and killing of girls. By other means, if she survives the first step of life, society has ways to discriminate her throughout life. As said, we pray to the goddess in temples, and we exploit girls.",
+      image: "/Projects/img1pro5.jpg",
     },
     {
-     
-      content: "Our Foundation follows a zero-tolerance policy toward fraud, cheating, misinformation, and any unethical practices. Employees must maintain complete ethical and social compliance. After a 3-month probation, eligible employees receive life and health insurance as per IRDA rules. The work culture may require travel across India and abroad based on project needs, and all opportunities are earned through integrity and hard work. We support employees’ growth by offering approved technical or non-technical training with possible financial or non-financial assistance, subject to the MD’s final decision and available only after probation. All positions require a valid bachelor’s degree and standard PAN-India identity/address proofs. Jobs in the Foundation are strictly private-sector roles, not Government or Semi-Government positions, and follow the rules stated on our website and Code of Conduct. We never ask for money or favors for jobs; openings may appear on job portals or our website, but applications are always free. Candidates must avoid anyone seeking commissions or payments. Shortlisting is done only through interviews and verification checks.",
-      image: "/abus-2.jpeg",
-     
+      content: "Society is full of hypocrite people far from a right attitude towards women. In Indian constitution, gender equality is not a fundamental right, but it is one of the most crucial actions for prosperity, peace and sustainability. Since the last decade, the data shows more girls are now going to schools, less are getting married. Several laws have reformed to improve gender equality. According to UNICEF – gender equality means women or men; boys or girls enjoy the same rights, resources, opportunities and protection. Transgender persons (protection and Rights) act passed in 2019, which tells the misplaced understanding of gender and the limited equalizing potential of it. The transgender is one which didn’t assigned gender at the time of birth. This is mention in clause 2(k) of our Indian constitution. The main objective was to provide protection and rights to the transgender people, their welfare and in different fields. It was considered to be one of the bill which didn’t took much hours and debate. It has become an integral part of society.",
+        image: "/Projects/img2pro5.jpg",
     },
     {
-      
-      content: "The jobs in this Foundation requires good amount of public dealings and interactions hence individuals applying for the same are expected to be well known to Hindi, English and Punjabi. The initial work profile will be in Chandigarh and in due course will be expanded to various States of North INDIA. The general working hours in this Foundation will be between Monday to Friday 9:30 am – 6:00 pm during summer and 9:30 am to 5:30pm during winters. There will be working ours based on any activity if being scheduled on Saturdays or any other holidays as per the case may arise. The employee will be benefited with an additional off day within next 45 -60 days from the day he or she had made her contribution on any holiday or weekends. The working rules will be applicable on the domestic as well as International official tours. The travel expenses for official trips will be borne by our Foundation. Our Foundation puts an extra emphasis over Gender Equality parameters, hence we hire close to 50% female employees in our projects and in general. The actual number may vary depends upon meeting financial and other work profile constraints. The detailed eligibility requirements of all the above mentioned benefits and processes are listed in “Code of Conduct” column in this website. We might involve other organizations, NGOs in our project(s) based on the need arises as per the situation. The preference will be through well established organization on State, Center or National Level which have positive track records. A strict compliance and due diligence will be followed as setup by Government for philanthropy organizations.",
-       image: "/abus-3.jpeg",
-      
+      content: "Transgender is considered to the gender identity, which is inconsistent or associated with any of the sex they assigned by birth and also deprived of the gender role. Transgender also cast a vote since the Supreme Court has declared them as the third gender. As our country is growing day by day, one of the significant changes is shown in the transgender figures. Aishwarya Rutaparna Pradhan born on Nov 12, 1983, became India's first openly transgender civil servant, working in the Odisha financial services as a commercial tax officer. Narthaki Natraj, a very well dancer from Tamil Nadu who has been honoured by Padma Shri, the 3rd highest civilian award. She is the first Indian to get this much of height. The Indian opposition party congress has appointed transgender Apsara Reddy to be the secretary of it women's wing the Mahila Congress. She is the first transgender person to come into the party of 134 years long history. Chandani Gore, is the deputy president of Nationalist congress party (NCP) in pune women’s wing. Kajal Nayak, a social activist from Jaipur also got the BSP ticket to contest the polls. In the growing phase, transgender is trying to accommodate in all the fields, be it entertainment too. Hrithik Roshan; has recently completed an Album with the Transgender Group & the same got appreciated at The Kapil Sharma Show on Sony Channel.",
+       image: "/Projects/img3pro5.jpg",
     },
-    
   ];
 
   return (
     <div>
       {/* Hero Image Section */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh]  sm:h-auto overflow-hidden">
         <img 
-          src="/about.jpeg" 
-          alt="About Us Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          src="/Projects/header5.png" 
+          alt="Environment Protection" 
+          className="w-full h-auto object-contain object-center"
         />
-       
-        <div className="absolute inset-0 flex items-center justify-center">
-          
-        </div>
       </section>
-      <section className="w-full bg-white py-8 sm:py-12 overflow-x-hidden">
+
+      <section className="w-full bg-white py-2 sm:py-4 overflow-x-hidden">
         <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
-              We at RUDRAKSHA WELFARE FOUNDATION, have a well defined journey with a prime motive to achieve success in making dreams come true for all those people around us who are lagged behind due to several personal and other challenges in their respective lives. The Foundation will work together along with them to fulfill their professional dreams & othe legitimate needs with a prime motive of allowing them to enrich and relish equal respect, dignity, health, earnings, better standard of living and confidence in their day to day lives. The mission of this Foundation will be completely unbiased and will act on first come first serve or first noticed first serve basis. The recommendations from any individual or group to provide any sort of legitimate help or assistance to anyone in the 15 Projects as per named mentioned below will be highly appreciated. These Activities will be requiring good amount of funds as well as technically enriched manpower to handle all projects. The Foundation will be working on self sustainability model along with support from various Govt. as well as Private Organizations PAN INDIA. The objective will not be stressed upon to raise funds from the CSR bucket of the various prestigious organizations, but will be raising funds through providing premium quality goods and services to general public at very reasonable rates in comparison to the prices quoted by several other respected players in the market. The respective Government Rules, Regulations and Licensing for the same will be procured well in advance before initiating any such business or activity of the nature as applicable.
-            </p>
+       We at RUDRAKSHA, are working on the<strong> Project Name “ARADHNARISHVAR” </strong>under the <strong> project head “GENDER JUSTICE”</strong>, to provide basic human rights and advantages to Women and Transgender with a motive of their identity upliftment. Women have played an extremely vital role in from the development of an individual to a nation on an elevated framework though ended up paying a hefty price in the form of her individuality and Equality. The depth of women respect and dignity is clearly mentioned in all ancient stories related to incarnation of Hindu Gods and their prominent followers. We can also find the same in other religious beliefs prevailing in this world though the irony of the situation is condition of women have been deteriorated in the last few decades at an alarming rate when it comes to equal opportunities and rights in all walks of lives.
+       <br/><br/>
+       In Vedic India, since ages women in consortium of Hindu Religion, have been provided enough space for her safety, health, education, home, wealth which have declined since the time has changed towards new era for last several hundred years. The Brahmins (priestly people) used to provide enough Religious knowledge to the women of their families to have culture and religion being propagated to all sections of the society in more adequate ways. The Kshastriyas, (also called Rajanyas, who were rulers, administrators and warriors) used to provide fight skills training to their women, in order to make them strong enough to protect themselves and families in the hour of need. The Vaishyas (artisans, merchants, tradesmen and farmers) used to teach women of their families about trade tactics, farming techniques and art in order to assist them in their daily business activities. Finally the Shudras (laboring classes), used to make sure their women have adequate skills to help them in their work and earn more livelihoods for their families. In INDIA, we use to worship since Vedic era Gods in the form of ARDHNARISHWAR, which is none other the Supreme Lord of this Universe and a perfect combination of SHIVA and SHAKTI.  </p>
           </div>
-          </div>
-          
-           </section>  
-
+        </div>
+      </section>  
 
       {/* Alternating Image-Text Sections */}
       <AlternatingSection sections={alternatingSections} />
       
-
       <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="space-y-6 sm:space-y-8">
-            <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
-               In everything we do, we remain committed to serving society with integrity, transparency, and purpose. Our mission is guided by strong ethical values, and we strive to create meaningful, sustainable impact through every project, initiative, and partnership. As we move forward, we continue to empower individuals, uplift communities, and contribute to the nation’s progress with unwavering dedication. Together—with our team, supporters, and beneficiaries—we aim to build a brighter, more inclusive, and responsible future for all.
-     </p>
-          </div>
-          </div>
-      
-           
+        <div className="space-y-6 sm:space-y-8">
+          
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+          A transgender actress and host Ganga has shown that with dedication, nothing is impossible to achieve success n ant field n today’s world. The INDIAN GOVERNMENT has taken many steps to help them in different field and sectors as they face various forms of gender violence, harassment and discrimination both in public and private places. Government is reserving seats for transgender in many fields. Reservations will have to be provided for transgender people in state police recruitments. For gender equality, the stability of every community is important. Proper utilization of resources, since ages, the patriarchal norms still prevail in our society where there is an apparent cut disparity between sexes. For a respected and better life- Women are treated and blamed for everything. On the contrary, males are called as superior in their all aspects. This is all because of the inequality existence. Ending all discrimination against women and girls is not only a basic human right, it’s crucial for sustainable future; it’s proven that empowering women and girls helps economic growth and development.
+          </p>
+<p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+          This is a matter of grave concern for our Nation and should not only be reminded on 26th Aug, being a National Women Equality Day” for a reason thereof. UNDP has made gender equality central to its work and we’ve seen remarkable progress in the past 20 years. There are more girls in school now compared to 15 years ago, and most regions have reached gender parity in primary education. In India, UN Women works closely with the Government of India and civil society to set national standards for achieving gender equality. UN Women works to strengthen women's economic empowerment through its support to women farmers and manual scavengers. The priority is also to make adequate arrangements to stop violence against women be it domestic, social or of any sort with a prime motive to provide them security and equal freedom.  </p>
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+           Women UN women also support gender equality parameters to be positive by providing women enough opportunities in the decision making roles in social and economic front for society and nation. The Government has contributed a lot and has provided enough support for such activities under the control and flagships of Ministry of Women and Child Development, GOI. State governments are the key to India’s progress on the SDG Agenda as they are best placed to ‘put people first’ and to ensuring that ‘no one is left behind’. Many of the Government’s flagship programmes such as Swachh Bharat, Make in India, Skill India, and Digital India are at the core of the SDGs. State and local governments play a pivotal role in many of these programs. Women generally have a natural wisdom and deep intellectual thought process of investing into their families, society, and nature way far ahead than a man can do. There have been decades when women trail behind men in forms of economic and social freedom, ownership rights, access to resources and opportunities though several evidences in today’s world have shown, giving equal opportunities for their growth have led to a better society and world for living. We have extended our support in the best possible way with in the limitations and compliances of instructions and guidelines being issued by GOI and hereby would like to seek the help from individuals, organizations, groups to participate in this holy activity of providing rights of equality to none other than who gives birth to men. We might involve other organizations, NGOs in our project(s) based on the need arises as per the situation. The preference will be through well established organization on State, Center or National Level which have positive track records. A strict compliance and due diligence will be followed as setup by Government for philanthropy organizations. </p>
+        </div>
+      </div>
     </div>
   );
 }

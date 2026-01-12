@@ -12,11 +12,16 @@ export default function Home() {
   
   // Array of slider images
   const sliderImages = [
-    "/fp1.jpg",
-    "/fp2.jpg",
-    "/fp3.jpg",
+    "/fp9.png",
+    "/fp8.png",
+    "/fp10.png",
+    "/fp7.png",
+    "/fp5.png",
+    "/fp6.png",
     "/fp4.jpg",
-    "/fp5.jpg"
+    "/fp3.jpg",
+    "/fp2.jpg",
+    "/fp1.jpg"
 
   ];
 
@@ -44,19 +49,19 @@ export default function Home() {
   return (
     <div>
       {/* Hero Slider Section */}
-      <section className="relative w-full h-[55vh] overflow-hidden mt-5">
+      <section className="relative w-full h-[60vh] overflow-hidden mt-2">
         {/* Slider Images */}
         {sliderImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full transition-opacity  duration-1000 ease-in-out ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <img 
               src={image}
               alt={`Slide ${index + 1}`}
-              className="absolute inset-0 w-full h-full object-contain object-center"
+              className="w-full h-auto object-contain object-center"
             />
          
           

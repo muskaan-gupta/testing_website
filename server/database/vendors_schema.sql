@@ -1,0 +1,25 @@
+-- Vendors Table Schema (Vendor Management System)
+CREATE TABLE IF NOT EXISTS vendors (
+  vendor_id INT AUTO_INCREMENT PRIMARY KEY,
+  company_name VARCHAR(200) NOT NULL,
+  organization_name VARCHAR(200) NOT NULL,
+  vendor_name VARCHAR(100) NOT NULL,
+  vendor_type VARCHAR(50) NOT NULL,
+  costing_breakdown TEXT,
+  document TEXT,
+  other_details TEXT,
+  account_no VARCHAR(50) NOT NULL,
+  gst VARCHAR(20),
+  ifsc VARCHAR(20) NOT NULL,
+  phone_number VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  timing VARCHAR(100) NOT NULL,
+  pan VARCHAR(20),
+  aadhar VARCHAR(20),
+  certificate VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_vendor_name (vendor_name),
+  INDEX idx_company_name (company_name),
+  INDEX idx_vendor_type (vendor_type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

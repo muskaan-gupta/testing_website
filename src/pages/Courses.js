@@ -142,7 +142,7 @@ const CourseCard = ({ course}) => {
           <img 
             src={course.image} 
             alt={course.title}
-            className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${
+            className={`w-full h-full object-cover transition-all duration-700 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setIsLoaded(true)}
@@ -198,7 +198,7 @@ const CourseCard = ({ course}) => {
 
             <motion.button
               onClick={handleEnroll}
-              className="relative px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-full overflow-hidden group/btn"
+              className="relative px-6 py-2 bg-gradient-to-r from-red-500 to-yellow-500 text-white font-semibold rounded-full overflow-hidden group/btn"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={course.availability === "Coming Soon"}
@@ -228,7 +228,7 @@ const Courses = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="relative py-20 bg-gradient-to-br from-red-50 via-white to-yellow-50">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -237,7 +237,7 @@ const Courses = () => {
           >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Explore Our{" "}
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 bg-clip-text text-transparent">
                 Courses
               </span>
             </h1>
@@ -253,13 +253,13 @@ const Courses = () => {
                 Expert Instructors
               </div>
               <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 01-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 01-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 01-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 Certified Programs
               </div>
               <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Lifetime Access
@@ -286,40 +286,7 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Ready to Start Learning?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of students who are already transforming their lives through education.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-full shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Browse Free Courses
-              </motion.button>
-              <motion.button
-                className="px-8 py-4 bg-white text-gray-800 font-semibold rounded-full border border-gray-200 shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Us
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      
     </div>
   );
 };

@@ -79,11 +79,11 @@ export default function FAQ() {
   return (
     <div>
       {/* Hero Image Section - Same as About page */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh] sm:h-auto overflow-hidden">
         <img 
           src="/faq.jpg" 
           alt="FAQ Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto object-contain object-center"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Optional: Add overlay text here if needed */}
@@ -91,7 +91,7 @@ export default function FAQ() {
       </section>
 
       {/* FAQ Section */}
-      <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+      <section className="w-full bg-white py-2 sm:py-4 lg:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}

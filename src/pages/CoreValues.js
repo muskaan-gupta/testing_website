@@ -52,15 +52,15 @@ export default function CoreValues() {
   return (
     <div>
       {/* Hero Image Section */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh] sm:h-auto overflow-hidden">
         <img 
           src="/cvnew.jpg" 
           alt="Core Values Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto object-contain object-center"
         />
        
       </section>
-      <section className="w-full bg-white py-8 sm:py-12 overflow-x-hidden">
+      <section className="w-full bg-white py-2 sm:py-4 overflow-x-hidden">
         <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
@@ -94,7 +94,7 @@ We have to take into consideration all of the 5 elements of our Core Values whil
                   <div className="flex items-start mb-3 space-x-4 sm:space-x-6">
                     {/* Number */}
                     <motion.span 
-                      className="text-4xl sm:text-5xl lg:text-6xl font-black text-blue-500 leading-none"
+                      className="text-4xl sm:text-5xl lg:text-6xl font-black  leading-none"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -105,13 +105,13 @@ We have to take into consideration all of the 5 elements of our Core Values whil
                     <div className="flex-1">
                       <div className="flex items-baseline mb-2">
                         <motion.span 
-                          className="text-6xl sm:text-7xl lg:text-8xl font-black text-black-500 leading-none mr-2 drop-shadow-lg"
+                          className="text-6xl sm:text-7xl lg:text-8xl font-black text-red-500 leading-none mr-2 drop-shadow-lg"
                           whileHover={{ scale: 1.05, rotate: 2 }}
                           transition={{ duration: 0.3 }}>
 
                           {value.letter}
                         </motion.span>
-                        <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-none group-hover:text-blue-600 transition-colors duration-300">
+                        <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-none ">
                           {value.title}
                         </h3>
                       </div>

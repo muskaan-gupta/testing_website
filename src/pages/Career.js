@@ -609,7 +609,7 @@ export default function Career() {
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 uppercase tracking-wider"
+                  className="px-12 py-4 bg-gradient-to-r from-yellow-500 to-red-300 text-white text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 uppercase tracking-wider"
                 >
                   Submit Data
                 </motion.button>

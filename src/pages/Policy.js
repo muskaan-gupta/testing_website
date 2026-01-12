@@ -14,18 +14,18 @@ export default function Policy() {
   return (
     <div>
       {/* Hero Image Section */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh] sm:h-auto overflow-hidden">
         <img 
           src="/policy.png" 
           alt="Policy Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto object-contain object-center"
         />
      
         <div className="absolute inset-0 flex items-center justify-center">
           
         </div>
       </section>
-      <section className="w-full bg-white py-8 sm:py-12 overflow-x-hidden">
+      <section className="w-full bg-white py-2 sm:py-4 overflow-x-hidden">
         <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">

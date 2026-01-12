@@ -54,7 +54,7 @@ const AlternatingSection = ({ sections }) => {
                       <img
                         src={section.image}
                        
-                        className="w-full h-100 sm:h-90 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-100 sm:h-90 lg:h-96 object-cover"
                       />
                     </div>
                     {/* Decorative overlay */}
@@ -78,7 +78,7 @@ const AlternatingSection = ({ sections }) => {
                     transition={{ delay: 0.2 }}
                   >
                    
-                    <p className="text-lg  text-black-900 leading-relaxed font-serif">
+                    <p className="text-lg  text-black-900 leading-relaxed text-justify font-serif">
                       {section.content}
                     </p>
                     
@@ -130,18 +130,16 @@ export default function About() {
   return (
     <div>
       {/* Hero Image Section */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh]  sm:h-auto overflow-hidden">
         <img 
           src="/about.jpeg" 
           alt="About Us Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto object-contain object-center"
         />
        
-        <div className="absolute inset-0 flex items-center justify-center">
-          
-        </div>
+       
       </section>
-      <section className="w-full bg-white py-8 sm:py-12 overflow-x-hidden">
+      <section className="w-full bg-white py-2 sm:py-4 overflow-x-hidden">
         <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">

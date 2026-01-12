@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CRM = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: ""
@@ -9,6 +11,7 @@ const CRM = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +25,10 @@ const CRM = () => {
         ...prev,
         [name]: ""
       }));
+    }
+    // Clear login error
+    if (loginError) {
+      setLoginError("");
     }
   };
 
@@ -53,13 +60,25 @@ const CRM = () => {
     }
 
     setIsLoading(true);
+    setLoginError("");
+    
     // Simulate API call
     setTimeout(() => {
-      setIsLoading(false);
-      // Here you would typically handle the login logic
-      console.log("Login attempted with:", formData);
-      alert("Login functionality will be implemented with backend integration");
-    }, 2000);
+      const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
+      const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
+      
+      if (formData.username === adminUsername && formData.password === adminPassword) {
+        // Store login status in sessionStorage
+        sessionStorage.setItem("isAuthenticated", "true");
+        sessionStorage.setItem("adminUsername", formData.username);
+        
+        // Redirect to dashboard
+        navigate("/dashboard");
+      } else {
+        setLoginError("Invalid username or password. Please try again.");
+        setIsLoading(false);
+      }
+    }, 1500);
   };
 
   const fadeInUp = {
@@ -83,8 +102,8 @@ const CRM = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6">
         
         {/* Header Section */}
         <motion.div 
@@ -93,38 +112,49 @@ const CRM = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.div
-            className="mx-auto h-16 w-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mb-6"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="mx-auto h-20 w-20 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center mb-4 shadow-md">
+            <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-          </motion.div>
+          </div>
           
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome to 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> CRM</span>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+            CRM Login
           </h2>
-          <p className="text-gray-600">Sign in to access your dashboard</p>
+          <p className="text-gray-600 text-sm">Access Dashboard</p>
         </motion.div>
 
         {/* Login Form */}
         <motion.div
-          className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8"
+          className="bg-white rounded-lg shadow-lg border-2 border-orange-200 p-8"
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.2 }}
         >
           <motion.form 
-            className="space-y-6" 
+            className="space-y-5" 
             onSubmit={handleSubmit}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
           >
+            
+            {/* Login Error Message */}
+            {loginError && (
+              <motion.div 
+                className="bg-red-50 border-l-4 border-red-500 rounded p-3"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-sm font-medium text-red-700">{loginError}</p>
+                </div>
+              </motion.div>
+            )}
             
             {/* Username Field */}
             <motion.div variants={fadeInUp}>
@@ -133,7 +163,7 @@ const CRM = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
@@ -144,10 +174,10 @@ const CRM = () => {
                   autoComplete="username"
                   value={formData.username}
                   onChange={handleInputChange}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                  className={`w-full pl-10 pr-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all ${
                     errors.username 
                       ? 'border-red-300 bg-red-50' 
-                      : 'border-gray-300 hover:border-gray-400 focus:bg-white'
+                      : 'border-gray-300 hover:border-orange-300'
                   }`}
                   placeholder="Enter your username"
                 />
@@ -173,7 +203,7 @@ const CRM = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
@@ -184,10 +214,10 @@ const CRM = () => {
                   autoComplete="current-password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className={`w-full pl-10 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                  className={`w-full pl-10 pr-12 py-3 border-2 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all ${
                     errors.password 
                       ? 'border-red-300 bg-red-50' 
-                      : 'border-gray-300 hover:border-gray-400 focus:bg-white'
+                      : 'border-gray-300 hover:border-orange-300'
                   }`}
                   placeholder="Enter your password"
                 />
@@ -196,7 +226,7 @@ const CRM = () => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  <svg className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-5 w-5 text-gray-400 hover:text-orange-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {showPassword ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
                     ) : (
@@ -226,7 +256,7 @@ const CRM = () => {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition-colors"
+                  className="h-4 w-4 text-orange-500 focus:ring-orange-400 border-gray-300 rounded"
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
                   Remember me
@@ -236,7 +266,7 @@ const CRM = () => {
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-300"
+                  className="font-medium text-green-500 "
                 >
                   Forgot password?
                 </a>
@@ -245,12 +275,10 @@ const CRM = () => {
 
             {/* Submit Button */}
             <motion.div variants={fadeInUp}>
-              <motion.button
+              <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-                whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                className="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
               >
                 {isLoading ? (
                   <div className="flex items-center">
@@ -261,16 +289,9 @@ const CRM = () => {
                     Signing in...
                   </div>
                 ) : (
-                  <>
-                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                      <svg className="h-5 w-5 text-blue-300 group-hover:text-blue-200 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a5 5 0 0110 0z" clipRule="evenodd" />
-                      </svg>
-                    </span>
-                    Sign in to CRM
-                  </>
+                  'Sign in to CRM'
                 )}
-              </motion.button>
+              </button>
             </motion.div>
           </motion.form>
 
@@ -284,7 +305,7 @@ const CRM = () => {
           >
             <p className="text-sm text-gray-600">
               Need access?{" "}
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+              <a href="#" className="font-medium text-orange-600 hover:text-orange-500">
                 Contact Administrator
               </a>
             </p>
@@ -299,11 +320,11 @@ const CRM = () => {
           animate="visible"
           transition={{ delay: 0.8 }}
         >
-          <p className="text-xs text-gray-500 flex items-center justify-center">
-            <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <p className="text-xs text-gray-600 flex items-center justify-center">
+            <svg className="w-4 h-4 mr-1 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a5 5 0 0110 0z" clipRule="evenodd" />
             </svg>
-            Your connection is secure and encrypted
+            Secure and encrypted connection
           </p>
         </motion.div>
       </div>

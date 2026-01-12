@@ -31,8 +31,8 @@ const AlternatingSection = ({ sections }) => {
   };
 
   return (
-    <section className="py-5 lg:py-4 bg-black-500">
-      <div className="max-w-8xl mx-auto  sm:px-6 lg:px-8">
+    <section className="py-5 lg:py-4 bg-white">
+      <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
         {sections.map((section, index) => {
           const isEven = index % 2 === 0;
           return (
@@ -53,12 +53,12 @@ const AlternatingSection = ({ sections }) => {
                     <div className="overflow-hidden rounded-xl shadow-xl">
                       <img
                         src={section.image}
-                       
-                        className="w-full h-100 sm:h-90 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Drug Addiction Awareness"
+                        className="w-full h-100 sm:h-90 lg:h-96 object-cover"
                       />
                     </div>
                     {/* Decorative overlay */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </motion.div>
 
@@ -77,11 +77,9 @@ const AlternatingSection = ({ sections }) => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                   >
-                   
-                    <p className="text-lg  text-black-900 leading-relaxed font-serif">
+                    <p className="text-lg text-black-900 leading-relaxed text-justify font-serif">
                       {section.content}
                     </p>
-                    
                   </motion.div>
                 </motion.div>
 
@@ -107,65 +105,61 @@ export default function About() {
   // Data for alternating sections
   const alternatingSections = [
     {
-      
-      content: "Our Organization is a core consortium of positive thoughts applied to personnel force and targets which have an in depth visioning with the prime objective of bringing the best possible solution for all those people in need of basic amenities of life. We always try to make sure not to leave any stone upturn in respect to provide support in all the philanthropy activities we perform as our daily routine work. It is a group of good number of individuals who have a hobby pertaining to social work and also provides a good platform to make the same as a professional life path. We invite professionals from different walk of lives and sectors, specifically fresher(s) to give themselves an opportunity to serve the society along with career progression. The Foundation has a specified work culture which is strictly blinded with Code of Conduct in all the perspectives of an organization behavior towards its employees as well as Society and Nation. We offer a great work culture wherein the employee has the opportunity to win accolades on completion of easily achievable targets as strict emphasis has been applied on ethical working. The promotion criteria are also not rigid and can be regained by any individual who has the positive intent and wisdom to work ethically.",
-      image: "/abus-1.jpeg",
-      
+      content: " Every year 2.5 million people die due to alcohol and drug use worldwide. In India, there are around 75 crore drug abusers, Haryana- 63.3%, Ambala- 60%. People in the age group of 12-18 years consume alcohol of around 21.9%, cannabis- 3%, Opiates- 0.7%, Illicit drug- 3.6%. According to a piece of recent news by Tribune in Aug 20, Punjab Excise Department has seized in a total of 27,600 litres of illicit chemicals which contains spirit in raids conducted at factories of Dera Bassi in Mohali on 9th August 2020. During the raid, seven people were arrested and the factories have been sealed. Officials found a factory in Dera Bassi manufacturing unauthorised chemicals like isopropyl alcohol stores in 136 drums of 200 litres each. Heroin is an opioid drug which is made from morphine, i.e. is a natural substance taken from the seed pod of the various opium poppy plants grown in Southeast and Southwest Asia, Mexico, and Colombia. It can be a white or brown powder or can be like a black sticky thing known as black tar heroin. People inject, sniff, snort, or smoke heroin. Also, some people mix it with crack cocaine, called speedballing. Crack cocaine, the crystal form of cocaine, usually available in powder form. Its colour varies from yellow to pale rose or white. It is named as crack because it is heated and smoked, and make a very cracking or popping sound when heated. It is the riskiest form of cocaine as it is between 75% to 100% pure, far stronger and more potent than regular cocaine.",
+      image: "/Projects/img1pro3.jpg",
     },
     {
-     
-      content: "Our Foundation follows a zero-tolerance policy toward fraud, cheating, misinformation, and any unethical practices. Employees must maintain complete ethical and social compliance. After a 3-month probation, eligible employees receive life and health insurance as per IRDA rules. The work culture may require travel across India and abroad based on project needs, and all opportunities are earned through integrity and hard work. We support employees’ growth by offering approved technical or non-technical training with possible financial or non-financial assistance, subject to the MD’s final decision and available only after probation. All positions require a valid bachelor’s degree and standard PAN-India identity/address proofs. Jobs in the Foundation are strictly private-sector roles, not Government or Semi-Government positions, and follow the rules stated on our website and Code of Conduct. We never ask for money or favors for jobs; openings may appear on job portals or our website, but applications are always free. Candidates must avoid anyone seeking commissions or payments. Shortlisting is done only through interviews and verification checks.",
-      image: "/abus-2.jpeg",
-     
+      content:  "Crystal meth or Mephedrone, also known as 4-methyl methcathinone or 4-methyl ephedrone, is a synthetic stimulant drug of the amphetamine and cathinone classes. Slang names include bath salts, drone, M-CAT, White Magic and meow meow comes in clear crystal chunks or like a shiny blue-white rock. It is a popular party drug, also known as ice or glass. Generally, people smoke crystal meth with a small glass pipe, but they may also swallow it, snort it, or inject it. I personally had known one individual, who not only cheated me & several others for money and trust, but even act as a drug peddler, druggist and a prostitute under the grave influence of this Crystal Myth that she didn't even bother to respect for basic social values, norms or relations in front of greed and dire need of this addiction. During World War II, soldiers were given meth to keep them awake. People have consumed this drug to lose weight and ease a way to deal with depression. Today, only legal meth product is one tablet which is used for treating obesity and attention deficit hyperactivity disorder (ADHD). It is available only after showing a prescription from a certified doctor. During the 26/11 attack, terrorists also consumed this drug so that they do not feel the pain of bullets and other injuries and can be fought more rigorously during that time. The terrorist's gang were so firm with their objective, and this didn't give up at any moment. Cocaine is a very powerful addictive stimulant drug which is made from the leaves of the coca plant native to South America. Health care providers can use it for valid medical purposes, such as for local anaesthesia for surgeries. Cocaine looks like a fine, white, crystal powder as a street drug. Street dealers often mix it up with other drugs such as synthetic opioids which is risky. People snort cocaine powder through the nose or inject into their veins.",
+      image: "/Projects/img2pro3.jpg",
     },
     {
-      
-      content: "The jobs in this Foundation requires good amount of public dealings and interactions hence individuals applying for the same are expected to be well known to Hindi, English and Punjabi. The initial work profile will be in Chandigarh and in due course will be expanded to various States of North INDIA. The general working hours in this Foundation will be between Monday to Friday 9:30 am – 6:00 pm during summer and 9:30 am to 5:30pm during winters. There will be working ours based on any activity if being scheduled on Saturdays or any other holidays as per the case may arise. The employee will be benefited with an additional off day within next 45 -60 days from the day he or she had made her contribution on any holiday or weekends. The working rules will be applicable on the domestic as well as International official tours. The travel expenses for official trips will be borne by our Foundation. Our Foundation puts an extra emphasis over Gender Equality parameters, hence we hire close to 50% female employees in our projects and in general. The actual number may vary depends upon meeting financial and other work profile constraints. The detailed eligibility requirements of all the above mentioned benefits and processes are listed in “Code of Conduct” column in this website. We might involve other organizations, NGOs in our project(s) based on the need arises as per the situation. The preference will be through well established organization on State, Center or National Level which have positive track records. A strict compliance and due diligence will be followed as setup by Government for philanthropy organizations.",
-       image: "/abus-3.jpeg",
-      
+      content:"  Barbiturates are central nervous depressants. They tend to reduce the activity of nerves causing muscle relaxation. They also reduce the heart rate, breathing and blood pressure. All barbiturates affect gamma-aminobutyric acid (GABA), a neurotransmitter (chemical) that nerves use to communicate with one another. Common side-effects of barbiturates include dizziness, sedation, nausea, etc. It can lead to slow breathing; reduce heart rate and they can be habit-forming. Nicotine is a plant alkaloid, found in the tobacco plant and addictive central nervous system (CNS) stimulant that causes either ganglionic stimulation in low doses or ganglionic blockage in high doses. It acts as an agonist at the nicotinic cholinergic receptors in the autonomic ganglia, at neuromuscular junctions, and in the adrenal medulla and the brain. Alcohol (drug) is a toxic and psychoactive substance with dependence producing properties. The consumption contributes 3 million deaths every year globally and disabilities and health issues to millions of people. Harmful use of alcohol is accountable for a significant percentage of the global burden of disease for males as well as females respectively. It is the most leading risk factor for premature mortality and disability among the age group of 15 to 49 years, accounting 10% of deaths in the particular age group.",  image: "/Projects/img3pro3.jpg",
     },
-    
   ];
 
   return (
     <div>
       {/* Hero Image Section */}
-      <section className="relative w-full h-[40vh] overflow-hidden">
+      <section className="relative w-full h-[40vh]  sm:h-auto overflow-hidden">
         <img 
-          src="/about.jpeg" 
-          alt="About Us Background" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          src="/Projects/header3.jpg" 
+          alt="Drug Addiction Awareness" 
+          className="w-full h-auto object-contain object-center"
         />
-       
-        <div className="absolute inset-0 flex items-center justify-center">
-          
-        </div>
       </section>
-      <section className="w-full bg-white py-8 sm:py-12 overflow-x-hidden">
+
+      <section className="w-full bg-white py-2 sm:py-4 overflow-x-hidden">
         <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="space-y-6 sm:space-y-8">
             <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
-              We at RUDRAKSHA WELFARE FOUNDATION, have a well defined journey with a prime motive to achieve success in making dreams come true for all those people around us who are lagged behind due to several personal and other challenges in their respective lives. The Foundation will work together along with them to fulfill their professional dreams & othe legitimate needs with a prime motive of allowing them to enrich and relish equal respect, dignity, health, earnings, better standard of living and confidence in their day to day lives. The mission of this Foundation will be completely unbiased and will act on first come first serve or first noticed first serve basis. The recommendations from any individual or group to provide any sort of legitimate help or assistance to anyone in the 15 Projects as per named mentioned below will be highly appreciated. These Activities will be requiring good amount of funds as well as technically enriched manpower to handle all projects. The Foundation will be working on self sustainability model along with support from various Govt. as well as Private Organizations PAN INDIA. The objective will not be stressed upon to raise funds from the CSR bucket of the various prestigious organizations, but will be raising funds through providing premium quality goods and services to general public at very reasonable rates in comparison to the prices quoted by several other respected players in the market. The respective Government Rules, Regulations and Licensing for the same will be procured well in advance before initiating any such business or activity of the nature as applicable.
+              We at RUDRAKSHA, are working on the <strong>Project Name "VAGUNAYA"</strong> under the <strong>Project Head "DRUG OF ADDICTION"</strong>, directed towards providing Health and Educational Support to youth and protect them from drugs addiction. Hallucinogenic drugs play a significant role in the development of religion since the middle of twentieth century. Herb is good for food, bad for the brain. Drugs are a constituent when taken results in altering the body functions, physically or psychologically. Consumption of drugs is an illegal practice as they can affect the central nervous system which results in disorders like change in mood, thinking and behaviour. Addiction to drugs usually starts with the use of recreational drug and gradually it becomes frequent. With time, an individual is so addicted that they may need larger doses to stay high as they tend to feel this state of mind as good. Gradually the drug use gets to increase and soon it becomes difficult to stay without having regular drug doses, which makes them physically and mentally ill.
+              <br/><br/>
+According Drug addiction symptoms or behaviours includes intense urge for drug, consuming drug more than the usual quantity, having a permanent supply of maintaining drugs, continuing drug usage irrespective of having many problems and doing things that you never wanted to do. There are many reasons because of which people are consuming drugs and most importantly many teenagers are considering drugs as the solution to every problem. Teenagers want to consume drugs because they have seen many films, series, etc, from which they got to know about this thing. They tend to have a perception after watching the films or shows that drugs will solve their problems, but the reality is the opposite. Many of them consume because they want to experiment with drugs. People consume drugs due to many reasons like everybody is doing it, so you are doing the same. Teenagers tend to consume because of their friends, but they don’t know that drugs can ruin their friendship completely. They feel like drugs can help them to deal with stress. Drugs change the way of thinking and leads to depression, anxiety and other mental illness. According to the census reports, the following findings have been made. 
             </p>
           </div>
-          </div>
-          
-           </section>  
-
+        </div>
+      </section>  
 
       {/* Alternating Image-Text Sections */}
       <AlternatingSection sections={alternatingSections} />
       
-
       <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="space-y-6 sm:space-y-8">
-            <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
-               In everything we do, we remain committed to serving society with integrity, transparency, and purpose. Our mission is guided by strong ethical values, and we strive to create meaningful, sustainable impact through every project, initiative, and partnership. As we move forward, we continue to empower individuals, uplift communities, and contribute to the nation’s progress with unwavering dedication. Together—with our team, supporters, and beneficiaries—we aim to build a brighter, more inclusive, and responsible future for all.
-     </p>
-          </div>
-          </div>
-      
-           
+        <div className="space-y-6 sm:space-y-8">
+          
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+            Amphetamine is a powerful stimulator of the central nervous system. It is used to treat some special medical conditions, and is highly addictive, with a history of abuse. Amphetamines are central nervous system (CNS) stimulants. They are used to treat ADHD and narcolepsy. Adverse effects include restlessness, acne and blurred vision. Side effects include seizures, heart problems and psychosis. Opioids are a type of drugs that include illegal drug heroin, synthetic opioids such as fentanyl, and pain relievers available legally by prescription, such as oxycodone, hydrocodone, codeine, etc. Opioid drugs are treated chemically and interact with receptors on nerve cells in the body and the brain. It relieves the pain in a very short time and can be misused in a different way or in a larger quantity than prescribed. In a study conducted by NIDA found that, after initiating the treatment, both a buprenorphine combination and an extended-release naltrexone formulation are similarly effective in treating opioid addiction. Benzodiazepines are man-made medications that cause mild to severe depression of the nerves within the brain and sedation. This drug is generally used to treat anxiety, panic disorders, muscle spasms, nervousness, etc. Combining this drug with alcohol is very dangerous. The side effects include- drowsiness, sedation, memory impairment, improper body balance, weight gain, fatigue, dry mouth, respiratory depression, dependence and abuse, jaundice, suicide, slow heart rate and seizures.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+            <strong>Treatment & Support:</strong> The treatment includes medication for depression or other disorders, counselling by experts and sharing of experience with other addicts. Rehab centres include meditations and spiritual wisdom in the treatment process. The National Institute on Drug Abuse (NIDA) recommends detoxification followed by both medication and behavioural therapy, followed by relapse prevention.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+            <strong>Central Sector Scheme:</strong> Central sector scheme of Assistance for Prevention of Alcoholism and Substance (Drugs) Abuse for Social Defence Services (effective from 01.01.2015) is the flagship scheme of the Ministry in the field of drug demand reduction. The scheme has two parts- Assistance to Voluntary Organisations for Prevention of Alcoholism and Drug Abuse is being implemented for identification, counselling, treatment and rehabilitation of addicts through voluntary and other eligible organisations. Under this scheme, financial assistance up to 90% of the approved expenditure is given to the voluntary organisation and other eligible agencies for setting up or running the Integrated Rehabilitation Centre for Addicts (IRCA), Regional Resource and Training Centres (RRTCs), for holding awareness-cum-de-addiction camps (ACDC) and Workplace prevention programmes, etc. Financial Assistance in the field of Social Defence aims to Prohibition and Drug abuse prevention scheme deals with budget allocation, grants sanctioned, several projects assisted and beneficiaries under the scheme for Assistance for Prevention of Alcoholism and substance (drug) abuse in India.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed text-justify break-words font-serif">
+            W.H.O works with member states and partners to prevent and stop the consumption of harmful drugs as a public health priority. WHO 2010 global strategy aims to reduce the consumption of alcohol and provides guidance on reducing the harmful use of alcohol at all levels. WHOs approach aligns with and is working towards the UN Sustainable Goals (SDGs), specifically target 3.5 on substance abuses, including harmful use of alcohol. Many NGOs and NPOs are working for drug de-addiction and likewise, we are also working to help people who are addicted to drugs and want to improve their lives and realise their mistake. We will try to help to people those can't afford the rehabilitation centres treatment, medicines, etc. We at RUDRAKSHA personally know one girl, who not only cheated one of our Top Management Individual & several outsiders for money and trust but even act as a drug peddler, druggist, and a prostitute under the grave influence of this Crystal Myth that she didn't even bother to respect for basic social values, norms or relations in front of greed and dire need of this addiction.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
