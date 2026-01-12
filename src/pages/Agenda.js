@@ -6,7 +6,7 @@ export default function Agenda() {
       {/* Hero Image Section */}
       <section className="relative w-full h-[40vh] sm:h-auto overflow-hidden">
         <img 
-          src="/AGENDA.JPG" 
+          src="/AGENDA.jpg" 
           alt="Agenda Background" 
           className="w-full h-auto object-contain object-center"
         />
